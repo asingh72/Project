@@ -3,6 +3,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+/*
+ * Output class is used to get end point of API's
+ * 
+ */
+
+
+
 public class Output {
 
 	
@@ -19,12 +26,12 @@ public class Output {
 					result.append(line);
 				}
 				rd.close();						
-				String re=result.toString();		
-				return re;
+				String json = result.toString();		
+				return json;
 										
 			} catch(Exception e){
 				
-				return "error";
+				return "Invalid City";
 			}			
 	}
 	

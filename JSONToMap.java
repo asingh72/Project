@@ -3,7 +3,9 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
+/*
+ * This class is used to convert JSON format to Map
+ */
 public class JSONToMap {
 	
 	

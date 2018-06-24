@@ -4,6 +4,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+/*
+ * Output class is used to get end point of API's
+ * 
+ */
+
+
+
 public class Output {
 
 	
