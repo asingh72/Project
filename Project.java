@@ -22,11 +22,14 @@ public class Project {
 		Scanner sc = new Scanner(System.in);		
 		WeatherThread wt = new WeatherThread();
 		ForecastThread ft = new ForecastThread();
+		
+		
 		ft.getForecastAPIOutput(city);
 		wt.getWeatherAPIOutput(city);
 		
 		
-
+		
+		
 	}
 
 }

@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 	public class WeatherThread {
+		protected static int x;
 		
 		public static void getWeatherAPIOutput(String cityName){
 	
@@ -15,14 +16,13 @@ import com.google.gson.reflect.TypeToken;
 	
 			String url2 = "http://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&appid="+ app_id;
 	
-	
-	
-
+			
 			Thread t2 = new Thread(() ->
 			{
 				String weatherData= opt.output(url2);
 					
-				System.out.println("\nEnd Pint of Weather API:\n"+weatherData);
+				System.out.println("\nEnd Point of Weather API:\n"+weatherData);
+				x=456;
 			
 				Map<String, Object> respMap = jtm.jsonToMap(weatherData.toString());
 				Map<String, Object> mainMap = jtm.jsonToMap(respMap.get("main").toString());
@@ -30,14 +30,13 @@ import com.google.gson.reflect.TypeToken;
 				Double currentTempratureInCelsius= (Double) ((Double) mainMap.get("temp")-273.15);
 		
 				saveData.saveData(currentTempratureInCelsius, cityName);
-		
-
+				
+				
 			}
 
 			);
-	
-	
 			t2.start();
+			
 		}
 
 }
