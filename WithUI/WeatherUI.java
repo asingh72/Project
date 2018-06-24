@@ -56,12 +56,12 @@ public class WeatherUI {
 			public void actionPerformed(ActionEvent e) {
 				Output opt = new Output();
 				JSONToMap jtm = new JSONToMap();
+				/* APP ID to access the API*/
 				String app_id = "6fb5265c1772baedbb525f0fa149b99d";		
 		
 			
 				Thread.UncaughtExceptionHandler h = new Thread.UncaughtExceptionHandler() {
 				    public void uncaughtException(Thread th, Throwable ex) {
-				        //System.out.println("Uncaught exception: " + ex);
 				        disTempCity.setText("Invalid City Name ");
 				    }
 				};
@@ -71,23 +71,21 @@ public class WeatherUI {
 				
 				Thread t2 = new Thread(() ->
 				{
+					
 					String cityName="";
-					
-						cityName= cityInput.getText();
-					
+					cityName= cityInput.getText();
+					/* URL to access Weather API*/
 					String url2 = "http://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&appid="+ app_id;
 					String weatherData= opt.output(url2);
 						
 					System.out.println("\nEnd Point of Weather API:\n"+weatherData);
-					//x=456;
 				
 					Map<String, Object> respMap = jtm.jsonToMap(weatherData.toString());
 					Map<String, Object> mainMap = jtm.jsonToMap(respMap.get("main").toString());
 			
+					/* converting temperature from kelvin to celsius*/
 					Double currentTempratureInCelsius= (Double) ((Double) mainMap.get("temp")-273.15);
-			
-					//saveData.saveData(currentTempratureInCelsius,cityName);
-					
+		
 					disTempCity.setText("Current Weather of "+cityName+" is "+ currentTempratureInCelsius );
 					
 				});

@@ -14,7 +14,7 @@ public class ForecastThread {
 		
 		/* APP ID to access the API*/
 		String app_id = "6fb5265c1772baedbb525f0fa149b99d";
-		/* Forecast URL*/
+		/* URL to access Forecast API*/
 		String url1 = "http://api.openweathermap.org/data/2.5/forecast?q="+ cityName +"&mode=json&appid="+ app_id;
 		Output opt = new Output();
 		
