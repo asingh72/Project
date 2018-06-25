@@ -1,0 +1,42 @@
+The application is developed in two different ways.
+1. Without UI.
+2. With UI. 
+
+
+Without UI
+•    This is the list of classes for Without UI part
+  o    Project.java
+  o    WeatherThread.java
+  o    ForecastThread.java
+  o    Output.java
+  o    JSONToMap.java
+  o    SaveData.java
+  o    Config.properties
+•    Without UI I am taking input (City Name) from Config file.
+•    Then this city name is passed from main class(Project.java) to two different classes (WeatherThread.java and ForecastThread.java) where I have created threads for API’s calls.
+•    Using city name and APP_ID I have created a URL for API call in respected class (Weather and Forecast). 
+•    I have created an object of Output class in both WeatherThread and ForecastThread classes.
+•    Output class is responsible for getting JSON format output from API endpoint. 
+•    From both WeatherThread and ForecastThread I have called Output.java for JSON format output by passing their respective URL’s.
+•     Once I have received JSON format output in WeatherThread.java, I have parsed this data from JSON to Map using JSONToMap.java class.  
+•    Class JSONToMap.java concerts the JSON format to Maps.
+•    By using Maps properties, I have extracted the Current Temperature of the city.
+•    Once I get the city name and current temperature, I stored this data to the local MongoDB Database using SaveData.java class.
+•    In SaveData.java class I have created a WeatherDataBase database and weather Collection using MongoClient method.
+•    Once City name and Current Temperature is stored, I have displayed the Entire Database in the WeatherThread.java class.
+
+ 
+
+With UI
+•    This is the list of classes for With UI part
+  o    WeatherUI.java
+  o    Output.java
+  o    JSONToMap.java
+•    In this part of the project, I have created an application window with Textbox and a submit button.
+•    For this part, I am taking input as city name from a user not from the config file.
+•    Once a user enters a city name and submits the button. We get the temperature of the entered city as our output.
+•    All the process like calling API’s, parsing, etc. is same as Without UI part. 
+
+
+
+
